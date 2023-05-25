@@ -1,0 +1,6 @@
+1. New Virtual Machine based on WASM for running smart contract
+2. New opcodes:
+  - sender
+  - balance
+  - transfer
+  - time
