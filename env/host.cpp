@@ -17,7 +17,7 @@ Host* Host::_instance = nullptr;
 Host::Host()
 {
     engine = new StorageEngine();
-    runtime = Runtime::new_runtime(this);
+    _runtime = Runtime::new_runtime(this);
 }
 
 Host::~Host()
@@ -37,6 +37,11 @@ void Host::clear_instance()
     if(_instance)
         delete _instance;
     _instance = nullptr;
+}
+
+Runtime* Host::runtime()
+{
+    return this->_runtime;
 }
 
 uint32_t Host::balance_of(address addr)
@@ -80,7 +85,7 @@ uint32_t Host::handle_execute(address sender, address to, uint32_t value, uint32
     if(data_size)
     {
         if(to)
-            return runtime->execute(sender, to, value, nonce, data_size, data) ? 1 : 0;
+            return _runtime->execute(sender, to, value, nonce, data_size, data) ? 1 : 0;
         else{   // Deploy smart contract
             auto contract_address = calculate_contract_address(sender, nonce);
             printf("New contract deployed 0x%08x \n", contract_address);

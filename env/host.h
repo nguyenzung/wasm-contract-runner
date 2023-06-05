@@ -12,7 +12,8 @@ class Runtime;
 // extern "C" {
 class Host{
     StorageEngine *engine;
-    Runtime *runtime;
+    Runtime *_runtime;
+    
     static Host *_instance;
 
     Host();
@@ -23,13 +24,13 @@ public:
 
     static void clear_instance();
 
+    Runtime *runtime();
+
     uint32_t balance_of(address addr);
 
     void add_balance(address addr, uint32_t amount);
 
     bool sub_balance(address addr, uint32_t amount);
-
-    // int handle_deploy();
 
     uint32_t handle_execute(address sender, address to, uint32_t value, uint32_t nonce, uint32_t data_size, char *data);
 

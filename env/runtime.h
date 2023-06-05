@@ -21,7 +21,7 @@ protected:
     wasm_module_t* wasm_module;
     wasm_instance_t* wasm_instance;
     
-    wasm_extern_t** wasm_externs;
+    wasm_extern_t* wasm_externs[4];
     wasm_extern_vec_t chain_opcodes;
 
 public:
