@@ -4,3 +4,5 @@
   - balance
   - transfer
   - time
+
+3. Dependencies: Wasmer, Emscripten

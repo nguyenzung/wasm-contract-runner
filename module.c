@@ -36,7 +36,6 @@ uint32_t test_transfer(uint32_t address, uint32_t amount)
   ;
 }
 
-
 EMSCRIPTEN_KEEPALIVE
 uint32_t test_sender() 
 {
